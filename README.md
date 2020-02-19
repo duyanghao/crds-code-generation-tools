@@ -73,6 +73,18 @@ Generating a CRD with `crds-code-generation-tools` is a simple task that involve
   ```bash
   # generate code with update-codegen.sh
   $ bash hack/update-codegen.sh
+  Generating deepcopy funcs
+  Generating clientset for duyanghao:v1 at github.com/duyanghao/crds-code-generation-tools/generated/clientset
+  Generating listers for duyanghao:v1 at github.com/duyanghao/crds-code-generation-tools/generated/listers
+  Generating informers for duyanghao:v1 at github.com/duyanghao/crds-code-generation-tools/generated/informers
+  $ tree -L 2 generated
+  generated
+  ├── clientset
+  │   └── versioned
+  ├── informers
+  │   └── externalversions
+  └── listers
+      └── duyanghao
   ```
 
 ## Refs

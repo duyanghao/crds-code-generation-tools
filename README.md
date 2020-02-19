@@ -1,20 +1,20 @@
 crds-code-generation-tools
 =========================
 
-`crds-code-generation-tools` is a tool which helps to provide CRD template and generate code relevant with your CRDs(such as clientset and so on) using [code-generator](https://github.com/kubernetes/code-generator) efficiently.
+`crds-code-generation-tools` is a tool which helps to provide CRDs template and generate code relevant with your CRDs(such as clientset and so on) using [code-generator](https://github.com/kubernetes/code-generator) efficiently.
 
 ## Usage
 
 Generating a CRD with `crds-code-generation-tools` is a simple task that involves a few steps as below:
 
-* Generate CRD
+* Generate CRDs
   ```bash
   # execute crds-code-generation.sh
   $ git clone https://github.com/duyanghao/crds-code-generation-tools.git && cd crds-code-generation-tools
   # Usage:
   # hack/crds-code-generation.sh, GroupName GroupPackage Version Kind Plural(eg: duyanghao.example.com duyanghao v1 Project projects)
   $ bash hack/crds-code-generation.sh duyanghao.example.com duyanghao v1 Project projects
-  # CRD template will be listed like below:
+  # CRDs template will be listed like below:
   pkg
   └── apis
       └── duyanghao
@@ -63,7 +63,7 @@ Generating a CRD with `crds-code-generation-tools` is a simple task that involve
   ```
 * Copy CRDs to your own project
   ```bash
-  # copy CRD to your own project
+  # copy CRDs to your own project
   $ grep -rl "github.com/duyanghao/crds-code-generation-tools" ./ | xargs sed -i '' 's/github.com\/duyanghao\/crds-code-generation-tools/your_project/g'
   $ cp -r crds-code-generation-tools/artifacts your_project/artifacts
   $ cp -r crds-code-generation-tools/hack your_project/hack

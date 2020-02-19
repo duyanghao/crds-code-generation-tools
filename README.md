@@ -1,21 +1,20 @@
 crds-code-generation-tools
 =========================
 
-`crds-code-generation-tools` is a tool which provides CRD template and generates code relevant with your CRDs(such as clientset and so on) using [code-generator](https://github.com/kubernetes/code-generator).
+`crds-code-generation-tools` is a tool which helps to provide CRD template and generate code relevant with your CRDs(such as clientset and so on) using [code-generator](https://github.com/kubernetes/code-generator) efficiently.
 
 ## Usage
 
 Generating a CRD with `crds-code-generation-tools` is a simple task that involves a few steps as below:
 
-* 1.Generate CRD
+* Generate CRD
   ```bash
   # execute crds-code-generation.sh
-  $ git clone https://github.com/duyanghao/crds-code-generation-tools.git && crds-code-generation-tools
-  $ bash hack/crds-code-generation.sh
-  Usage:
-  hack/crds-code-generation.sh, GroupName GroupPackage Version Kind Plural(eg: duyanghao.example.com duyanghao v1 Project projects)
+  $ git clone https://github.com/duyanghao/crds-code-generation-tools.git && cd crds-code-generation-tools
+  #Usage:
+  #hack/crds-code-generation.sh, GroupName GroupPackage Version Kind Plural(eg: duyanghao.example.com duyanghao v1 Project projects)
   $ bash hack/crds-code-generation.sh duyanghao.example.com duyanghao v1 Project projects
-  # CRD will list like below:
+  # CRD template will be listed like below:
   pkg
   └── apis
       └── duyanghao
@@ -27,7 +26,7 @@ Generating a CRD with `crds-code-generation-tools` is a simple task that involve
   artifacts
   └── crd.yaml
   ``` 
-* 2.Edit your own CRDs
+* Edit your own CRDs
   ```bash
   # Complete the Spec and Status fields if necessary 
   $ cat pkg/apis/duyanghao/v1/types.go
@@ -62,14 +61,15 @@ Generating a CRD with `crds-code-generation-tools` is a simple task that involve
   	Items []Project `json:"items"`
   }
   ```
- * 3.Copy CRDs to your project
+* Copy CRDs to your project
   ```bash
   # copy CRD to your project
-  $ cp -r crds-code-generation-tools your_project
-  # generate your own project
   $ grep -rl "github.com/duyanghao/crds-code-generation-tools" ./ | xargs sed -i '' 's/github.com\/duyanghao\/crds-code-generation-tools/your_project/g'
+  $ cp -r crds-code-generation-tools/artifacts your_project/artifacts
+  $ cp -r crds-code-generation-tools/hack your_project/hack
+  $ cp -r crds-code-generation-tools/pkg/apis your_project/pkg/apis
   ```
-  * 4.Generate code relevant with your CRD(such as clientset and so on)
+* Generate code relevant with your CRD(such as clientset and so on)
   ```bash
   # generate code with update-codegen.sh
   $ bash hack/update-codegen.sh

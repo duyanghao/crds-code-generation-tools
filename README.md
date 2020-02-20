@@ -7,7 +7,7 @@ crds-code-generation-tools
 
 Generating a CRD with `crds-code-generation-tools` is a simple task that involves a few steps as below:
 
-* Generate CRDs
+* 1. Generate CRDs
   ```bash
   # execute crds-code-generation.sh
   $ git clone https://github.com/duyanghao/crds-code-generation-tools.git && cd crds-code-generation-tools
@@ -25,8 +25,16 @@ Generating a CRD with `crds-code-generation-tools` is a simple task that involve
               └── types.go 
   artifacts
   └── crd.yaml
+  ```
+* 2. Copy CRDs to your own project
+  ```bash
+  # copy CRDs to your own project
+  $ grep -rl "github.com/duyanghao/crds-code-generation-tools" ./ | xargs sed -i '' 's/github.com\/duyanghao\/crds-code-generation-tools/your_project/g'
+  $ cp -r crds-code-generation-tools/artifacts your_project/artifacts
+  $ cp -r crds-code-generation-tools/hack your_project/hack
+  $ cp -r crds-code-generation-tools/pkg/apis your_project/pkg/apis
   ``` 
-* Edit your own CRDs
+* 3. Edit your own CRDs
   ```bash
   # Complete the Spec and Status fields if necessary 
   $ cat pkg/apis/duyanghao/v1/types.go
@@ -61,15 +69,7 @@ Generating a CRD with `crds-code-generation-tools` is a simple task that involve
   	Items []Project `json:"items"`
   }
   ```
-* Copy CRDs to your own project
-  ```bash
-  # copy CRDs to your own project
-  $ grep -rl "github.com/duyanghao/crds-code-generation-tools" ./ | xargs sed -i '' 's/github.com\/duyanghao\/crds-code-generation-tools/your_project/g'
-  $ cp -r crds-code-generation-tools/artifacts your_project/artifacts
-  $ cp -r crds-code-generation-tools/hack your_project/hack
-  $ cp -r crds-code-generation-tools/pkg/apis your_project/pkg/apis
-  ```
-* Generate code relevant with your CRDs(such as clientset and so on)
+* 4. Generate code relevant with your CRDs(such as clientset and so on)
   ```bash
   # generate code with update-codegen.sh
   $ bash hack/update-codegen.sh

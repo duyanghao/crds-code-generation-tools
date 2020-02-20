@@ -7,7 +7,7 @@ crds-code-generation-tools
 
 Generating a CRD with `crds-code-generation-tools` is a simple task that involves a few steps as below:
 
-#### Step1-Generate CRDs
+#### Step1: Generate CRDs
 
 ```bash
 # execute crds-code-generation.sh
@@ -28,17 +28,17 @@ artifacts
 └── crd.yaml
 ```
 
-#### Step2-Copy CRDs to your own project
+#### Step2: Copy CRDs to your own project
 
 ```bash
 # copy CRDs to your own project
 $ grep -rl "github.com/duyanghao/crds-code-generation-tools" ./ | xargs sed -i '' 's/github.com\/duyanghao\/crds-code-generation-tools/your_project/g'
-$ cp -r crds-code-generation-tools/artifacts your_project/artifacts
-$ cp -r crds-code-generation-tools/hack your_project/hack
-$ cp -r crds-code-generation-tools/pkg/apis your_project/pkg/apis
+$ cp -r artifacts your_project/artifacts
+$ cp -r hack your_project/hack
+$ cp -r pkg/apis your_project/pkg/apis
 ```
  
-#### Step3-Edit your own CRDs
+#### Step3: Edit your own CRDs
 
 ```bash
 # Complete the Spec and Status fields if necessary 
@@ -75,7 +75,7 @@ type ProjectList struct {
 }
 ```
 
-#### Step4-Generate code relevant with your CRDs(such as clientset and so on)
+#### Step4: Generate code relevant with your CRDs(such as clientset and so on)
 
 ```bash
 # generate code with update-codegen.sh
@@ -91,7 +91,7 @@ generated
 ├── informers
 │   └── externalversions
 └── listers
-  └── duyanghao
+    └── duyanghao
 ```
 
 ## Refs

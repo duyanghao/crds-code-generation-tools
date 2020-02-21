@@ -24,6 +24,7 @@ clear_envs() {
 generate_crds() {
     # generate CRDs
     cp -r templates templates_tmp
+    find templates_tmp -type f -name '*.tmpl' -exec sh -c 'mv -- "$0" "${0%%.tmpl}"' {} \;
     grep -rl "{GroupName}" ./templates_tmp | xargs sed -i '' "s/{GroupName}/${GroupName}/g"
     grep -rl "{GroupPackage}" ./templates_tmp | xargs sed -i '' "s/{GroupPackage}/${GroupPackage}/g"
     grep -rl "{Version}" ./templates_tmp | xargs sed -i '' "s/{Version}/${Version}/g"

@@ -16,8 +16,8 @@ hack/crds-code-generation.sh, GroupName GroupPackage Version Kind Plural(eg: duy
 * GroupName: Resource Group of CRDs(eg: `duyanghao.example.com`)
 * GroupPackage: Generated group package directory, which is normal the prefix of `GroupName`(eg: `duyanghao`)
 * Version: Resource Version of CRDs, relevant with `GroupName`(eg: `v1`)
-* Kind: Resource Kind of CRDs, which is what you want to create in Kubernetes and begins with a capital letter(eg: `Project`, )
-* Plural: Plural of CRDs(eg: `projects`)
+* Kind: Resource Kind of CRDs, which is what you want to create in Kubernetes and begins with a capital letter(eg: `Project`)
+* Plural: The plural of CRDs(eg: `projects`)
 
 ### Steps
 

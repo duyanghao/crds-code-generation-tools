@@ -5,6 +5,22 @@ crds-code-generation-tools
 
 ## Usage
 
+### Params
+
+```
+hack/crds-code-generation.sh, GroupName GroupPackage Version Kind Plural(eg: duyanghao.example.com duyanghao v1 Project projects)
+```
+
+![](images/kubernetes-group-version.png)
+
+* GroupName: Resource Group of CRDs(eg: `duyanghao.example.com`)
+* GroupPackage: Generated group package directory, which is normal the prefix of `GroupName`(eg: `duyanghao`)
+* Version: Resource Version of CRDs, relevant with `GroupName`(eg: `v1`)
+* Kind: Resource Kind of CRDs, which is what you want to create in Kubernetes and begins with a capital letter(eg: `Project`, )
+* Plural: Plural of CRDs(eg: `projects`)
+
+### Steps
+
 Generating a CRD with `crds-code-generation-tools` is a simple task that involves a few steps as below:
 
 #### STEP 1 - Generate CRDs
@@ -12,8 +28,6 @@ Generating a CRD with `crds-code-generation-tools` is a simple task that involve
 ```bash
 # execute crds-code-generation.sh
 $ git clone https://github.com/duyanghao/crds-code-generation-tools.git && cd crds-code-generation-tools
-# Usage:
-# hack/crds-code-generation.sh, GroupName GroupPackage Version Kind Plural(eg: duyanghao.example.com duyanghao v1 Project projects)
 $ bash hack/crds-code-generation.sh duyanghao.example.com duyanghao v1 Project projects
 # CRDs template will be listed like below:
 pkg

@@ -8,7 +8,7 @@ crds-code-generation-tools
 ### Params
 
 ```
-hack/crds-code-generation.sh, GroupName GroupPackage Version Kind Plural(eg: duyanghao.example.com duyanghao v1 Project projects)
+hack/crds-code-generation.sh GroupName GroupPackage Version Kind Plural(eg: duyanghao.example.com duyanghao v1 Project projects)
 ```
 
 ![](images/kubernetes-group-version.png)
